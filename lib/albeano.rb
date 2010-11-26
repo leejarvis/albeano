@@ -22,6 +22,8 @@ class Albeano
     end
   end
 
+  alias :to_s :generate
+
   def to_markdown(*extensions)
     begin
       require 'rdiscount'
