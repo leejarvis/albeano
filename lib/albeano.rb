@@ -17,11 +17,7 @@ class Albeano
 
   def generate
     @text.gsub(/\[code(?:=(.+?))?\]\s*(.+?)\s*\[\/code\]/m) do
-      if $1
-        Albino.colorize($2, $1)
-      else
-        Albino.colorize($2)
-      end
+      Albino.colorize($2, $1 || :text)
     end
   end
 
