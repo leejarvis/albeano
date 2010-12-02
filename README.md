@@ -29,7 +29,7 @@ You can even have it return markdown. Just make sure you have
 
 ### Rails 3
 
-You can easily incorporate Albeano into your exists Rails applications, just
+You can easily incorporate Albeano into your existing Rails applications, just
 add `albeano` to your Gemfile.
 
 You can then add a method do your models (assuming `body` contains the
