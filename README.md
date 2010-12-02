@@ -26,3 +26,26 @@ You can even have it return markdown. Just make sure you have
 
     Albeano.new(text).to_markdown
     Albeano.new(text).to_markdown(:smart, :filter_html)
+
+### Rails 3
+
+You can easily incorporate Albeano into your exists Rails applications, just
+add `albeano` to your Gemfile.
+
+You can then add a method do your models (assuming `body` contains the
+body of your post or text):
+
+    class Post < ActiveRecord::Base
+      def content
+        Albeano.generate(body)
+      end
+
+      # with markdown
+      def content
+        Albeano.new(body).to_markdown
+      end
+    end
+
+You can of course use these methods inside of your views, too. Remember to
+use the `html_safe` method before rendering your markup, otherwise your HTML
+will be escaped and rendered as entities.
