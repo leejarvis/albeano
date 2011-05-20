@@ -16,6 +16,7 @@ class Albeano
     @markdown = nil
   end
 
+  # @return [String] Newly generated Albino markup
   def generate
     @text.gsub(/\[code(?:=(.+?))?\]\s*(.+?)\s*\[\/code\]/m) do
       Albino.colorize($2, $1 || :text)
@@ -24,6 +25,8 @@ class Albeano
 
   alias :to_s :generate
 
+  # @raise [LoadError] Raised when unable to load RDiscount
+  # @return [String] The newly generated markup
   def to_markdown(*extensions)
     begin
       require 'rdiscount'
